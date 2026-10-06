@@ -1,0 +1,336 @@
+/* ================================
+   MAIN PAGE
+================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+
+  background: linear-gradient(
+    135deg,
+    #f7d9e8,
+    #d9f3f0
+  );
+}
+
+/* ================================
+   APP
+================================ */
+
+.App {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px 20px;
+}
+
+/* ================================
+   HEADER
+================================ */
+
+.Header {
+  color: #ffffff;
+
+  font-size: 24px;
+  font-weight: bold;
+
+  text-align: center;
+
+  margin-bottom: 20px;
+
+  text-shadow:
+    0 2px 4px rgba(80, 80, 80, 0.4);
+}
+
+/* ================================
+   CALCULATOR BODY
+================================ */
+
+.Calculator {
+  width: 400px;
+
+  padding: 20px;
+
+  /* transparent calculator look */
+  background: rgba(255, 255, 255, 0.55);
+
+  border: 2px solid rgba(255, 255, 255, 0.8);
+
+  border-radius: 28px;
+
+  box-shadow:
+    0 15px 35px rgba(80, 80, 80, 0.25);
+
+  backdrop-filter: blur(8px);
+}
+
+/* ================================
+   DISPLAY
+================================ */
+
+.Display {
+  width: 100%;
+  height: 85px;
+
+  padding: 15px 20px;
+
+  margin-bottom: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  /* LCD style */
+  background: #c9d4d8;
+
+  color: #27343a;
+
+  border: 3px solid #aebbc0;
+
+  border-radius: 10px;
+
+  font-family: "Courier New", monospace;
+
+  font-size: 38px;
+  font-weight: bold;
+
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  box-shadow:
+    inset 0 3px 8px rgba(0, 0, 0, 0.18);
+}
+
+/* ================================
+   KEYPAD
+================================ */
+
+.Keypad {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 10px;
+}
+
+/* ================================
+   NORMAL BUTTONS
+================================ */
+
+.Button {
+  height: 68px;
+
+  border: 2px solid rgba(255, 255, 255, 0.9);
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    145deg,
+    #f7d6e5,
+    #e9bcd1
+  );
+
+  color: #444;
+
+  font-size: 23px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 8px rgba(100, 100, 100, 0.25),
+    inset 0 2px 4px rgba(255, 255, 255, 0.8);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+/* Hover */
+
+.Button:hover {
+  background: linear-gradient(
+    145deg,
+    #fbddea,
+    #edc4d7
+  );
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 7px 12px rgba(100, 100, 100, 0.3);
+}
+
+/* Click */
+
+.Button:active {
+  transform: scale(0.92);
+
+  box-shadow:
+    inset 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* ================================
+   OPERATOR BUTTONS
+================================ */
+
+/* ÷ × - + */
+
+.Button:nth-child(4),
+.Button:nth-child(8),
+.Button:nth-child(12),
+.Button:nth-child(16) {
+  background: linear-gradient(
+    145deg,
+    #d7f0f1,
+    #a9dfe2
+  );
+
+  color: #315b61;
+}
+
+.Button:nth-child(4):hover,
+.Button:nth-child(8):hover,
+.Button:nth-child(12):hover,
+.Button:nth-child(16):hover {
+  background: linear-gradient(
+    145deg,
+    #e3f8f8,
+    #b9e8ea
+  );
+}
+
+/* ================================
+   CLEAR BUTTON
+================================ */
+
+.ClrButton {
+  height: 68px;
+
+  border: 2px solid rgba(255, 255, 255, 0.9);
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    145deg,
+    #ffffff,
+    #e6e6e6
+  );
+
+  color: #555;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 8px rgba(100, 100, 100, 0.25),
+    inset 0 2px 4px rgba(255, 255, 255, 0.9);
+
+  transition: 0.15s ease;
+}
+
+.ClrButton:hover {
+  background: #f5f5f5;
+
+  transform: translateY(-2px);
+}
+
+.ClrButton:active {
+  transform: scale(0.92);
+}
+
+/* ================================
+   EQUAL BUTTON
+================================ */
+
+.EqualButton {
+  height: 68px;
+
+  border: 2px solid rgba(255, 255, 255, 0.9);
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    145deg,
+    #c9f1ef,
+    #9edbd8
+  );
+
+  color: #315b61;
+
+  font-size: 23px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 8px rgba(100, 100, 100, 0.25),
+    inset 0 2px 4px rgba(255, 255, 255, 0.8);
+
+  transition: 0.15s ease;
+}
+
+.EqualButton:hover {
+  background: linear-gradient(
+    145deg,
+    #d9f8f6,
+    #afe5e2
+  );
+
+  transform: translateY(-2px);
+}
+
+.EqualButton:active {
+  transform: scale(0.92);
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 500px) {
+
+  .App {
+    padding: 20px 10px;
+  }
+
+  .Header {
+    font-size: 18px;
+
+    margin-bottom: 15px;
+  }
+
+  .Calculator {
+    width: 100%;
+    max-width: 380px;
+
+    padding: 15px;
+  }
+
+  .Display {
+    height: 75px;
+
+    font-size: 30px;
+  }
+
+  .Button,
+  .ClrButton,
+  .EqualButton {
+    height: 58px;
+
+    font-size: 20px;
+  }
+}
